@@ -1,10 +1,10 @@
 import React from "react";
 import MovieCard from "../moive-card/MovieCard";
 
-import { movies } from "../../data/mock_data";
+// import { movies } from "../../data/mock_data";
 import "./MovieCardList.css";
 
-const MovieCardList = () => {
+const MovieCardList = ({ movies }) => {
   return (
     <div className="movies-card-list-container">
       <div className="row">

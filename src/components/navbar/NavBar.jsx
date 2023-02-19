@@ -24,13 +24,13 @@ const NavBar = () => {
             Home <span className="sr-only">(current)</span>
           </a>
           <a className="nav-link" href="#">
-            About Me
+            Add movie
           </a>
           <a className="nav-link" href="#">
-            Projects
+            Delete movie
           </a>
           <a className="nav-link" href="#">
-            Testimonials
+            About
           </a>
         </div>
       </div>
