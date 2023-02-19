@@ -22,50 +22,45 @@ export const getMovies = async (endpoint) => {
   return data;
 };
 
-export const addMovie = (newMovie) => {
-  fetch("https://PROJECT_TOKEN.mockapi.io/tasks", {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    // Send your data in the request body as JSON
-    body: JSON.stringify(newMovie),
-  })
+export const addMovie = async (endpoint, newMovie) => {
+  const addedMovie = await fetch(
+    `https://63f1c0324f17278c9a193673.mockapi.io/${endpoint}`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      // Send your data in the request body as JSON
+      body: JSON.stringify(newMovie),
+    }
+  )
     .then((res) => {
       if (res.ok) {
         return res.json();
       }
-      // handle error
     })
     .then((result) => {
-      // do something with the new task
       return result;
     })
     .catch((error) => {
       // handle error
       alert("Can not add new Movie");
     });
+  return addedMovie;
 };
 
-export const deleteMovie = (movieID) => {
-  fetch(`https://<PROJECT_TOKEN.mockapi.io/tasks/${movieID}`, {
-    method: "DELETE",
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
+export const deleteMovie = (endpoint, movieID) => {
+  try {
+    fetch(
+      `https://63f1c0324f17278c9a193673.mockapi.io/${endpoint}/${movieID}`,
+      {
+        method: "DELETE",
       }
-      // handle error
-    })
-    .then((task) => {
-      // Do something with deleted task
-      console.log(task, "deleted");
-    })
-    .catch((error) => {
-      // handle error
-      alert("Can not delete the Movie");
-    });
+    );
+  } catch (err) {
+    alert("Can not delete the Movie");
+  }
 };
 
-const updateMovie = () => {
+export const updateMovie = () => {
   fetch("https://PROJECT_TOKEN.mockapi.io/tasks/1", {
     method: "PUT", // or PATCH
     headers: { "content-type": "application/json" },

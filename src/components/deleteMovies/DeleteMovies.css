@@ -1,0 +1,10 @@
+.delete-movie-row {
+    border-bottom: 1px solid gray;
+    height: 100px;
+}
+
+.title {
+    font-family: roboto;
+    font-weight: bold;
+    font-size: 22px;
+}
