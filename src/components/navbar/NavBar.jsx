@@ -6,9 +6,9 @@ const NavBar = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand community-name" href="#">
+        <Link to={"/"} className="navbar-brand community-name" href="#">
           #இளஞ்சிட்டுகள்
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"

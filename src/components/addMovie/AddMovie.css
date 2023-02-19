@@ -1,4 +1,11 @@
 .movie-form {
-    width: 40vw;
-    margin: 10vh auto 0;
+    margin: 10vh 20px 0;
+}
+
+@media only screen and (min-width: 992px) {
+    .movie-form {
+        width: 40vw;
+        margin: 10vh auto 0;
+    }
+    
 }

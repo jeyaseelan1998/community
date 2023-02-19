@@ -21,15 +21,15 @@ const DeleteMovie = () => {
         return (
           <div
             key={movie.id}
-            className=" m-5 row d-flex flex-row align-items-center delete-movie-row"
+            className="  row d-flex flex-row align-items-center delete-movie-row"
           >
-            <div className="col-4">
+            <div className="col-12 mb-3">
               <h1 className="title">{movie.title}</h1>
             </div>
-            <div className="col-4">
+            <div className="col-12 col-md-6 mb-3 mb-md-0">
               <button className="btn btn-info disabled">Update</button>
             </div>
-            <div className="col-4">
+            <div className="col-12 col-md-6">
               <button
                 className="btn btn-danger"
                 onClick={() => remove(movie.id)}
