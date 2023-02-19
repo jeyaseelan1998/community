@@ -23,6 +23,9 @@ const AddMovie = () => {
     const password = prompt();
     if (password === "9698") {
       addMovieHandler(newMovie);
+      titleRef.current.value = "";
+      imgURLRef.current.value = "";
+      seedrLinkRef.current.value = "";
     } else {
       alert("You cannot Add Movies without password");
     }

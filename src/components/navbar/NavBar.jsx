@@ -31,9 +31,6 @@ const NavBar = () => {
             <Link to={"deletemovie"} className="nav-link" href="#">
               Delete movie
             </Link>
-            <a className="nav-link" href="#">
-              About
-            </a>
           </div>
         </div>
       </nav>
