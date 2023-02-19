@@ -1,0 +1,32 @@
+.movie-card {
+    text-align: center;
+    padding: 15px;
+    border-radius: 16px;
+    background-color: rgba(0,0,0,0.125);
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.movie-title {
+    font-family: roboto;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    width: fit-content;
+    padding: 10px 15px;
+    margin: 0 auto 10px;
+    color: white;
+}
+
+.movie-image {
+    height: 40vh;
+    width: 25vh;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.btn {
+    width: 150px;
+    font-size: 12px;
+}
