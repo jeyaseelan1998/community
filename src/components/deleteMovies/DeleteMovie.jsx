@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { MoviesContext } from "../../context/MoviesContext";
+import Spinner from "../spinner/Spinner";
 
 import "./DeleteMovies.css";
 
@@ -7,13 +8,17 @@ const DeleteMovie = () => {
   const { movies, deletingHandler } = useContext(MoviesContext);
 
   const remove = (id) => {
-    const password = prompt();
+    const password = prompt("Enter Confirmation Password");
     if (password === "9698") {
       deletingHandler(id);
     } else {
       alert("You cannot Delete Movies without password");
     }
   };
+
+  if (!movies.length) {
+    return <Spinner />;
+  }
 
   return (
     <div className="deleteMoviesContainer">

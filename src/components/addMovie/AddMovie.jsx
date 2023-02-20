@@ -20,7 +20,7 @@ const AddMovie = () => {
     };
 
     //Password validation
-    const password = prompt();
+    const password = prompt("Enter Confirmation Password");
     if (password === "9698") {
       addMovieHandler(newMovie);
       titleRef.current.value = "";
