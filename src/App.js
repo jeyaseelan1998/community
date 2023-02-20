@@ -1,12 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+
 import NavBar from "./components/navbar/NavBar";
 import MovieCardList from "./components/movies-card-list/MovieCardList";
+import AddMovie from "./components/addMovie/AddMovie";
+import DeleteMovie from "./components/deleteMovies/DeleteMovie";
 
 import "./App.css";
-import { getMovies } from "./api/mockapi";
-import AddMovie from "./components/addMovie/AddMovie";
-import { Route, Routes } from "react-router-dom";
-import DeleteMovie from "./components/deleteMovies/DeleteMovie";
 
 function App() {
   return (
