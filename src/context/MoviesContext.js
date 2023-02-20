@@ -6,12 +6,14 @@ export const MoviesContext = createContext();
 const MoviesContextProvider = ({ children }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const fetchMovies = async () => {
       const moviesList = await getMovies("movies");
       setMovies(moviesList);
+      setIsLoading(false);
     };
     fetchMovies();
     return () => false;
@@ -32,6 +34,7 @@ const MoviesContextProvider = ({ children }) => {
     movies,
     deletingHandler,
     addMovieHandler,
+    isLoading,
   };
 
   return (

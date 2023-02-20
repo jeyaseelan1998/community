@@ -1,9 +1,9 @@
 .movie-card {
+    /* width: fit-content; */
     text-align: center;
     padding: 15px;
     border-radius: 16px;
     background-color: rgba(0,0,0,0.125);
-    width: fit-content;
     margin: auto;
     margin-bottom: 20px;
 }
@@ -29,4 +29,15 @@
 .btn {
     width: 150px;
     font-size: 12px;
+}
+
+.hd-icon-container {
+    position: absolute;
+    top:30px;
+    right: 75px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

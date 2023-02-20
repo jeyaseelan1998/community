@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { MoviesContext } from "../../context/MoviesContext";
+import EmptyMsg from "../emptyMsg/EmptyMsg";
 import Spinner from "../spinner/Spinner";
 
 import "./DeleteMovies.css";
 
 const DeleteMovie = () => {
-  const { movies, deletingHandler } = useContext(MoviesContext);
+  const { movies, isLoading, deletingHandler } = useContext(MoviesContext);
 
   const remove = (id) => {
     const password = prompt("Enter Confirmation Password");
@@ -16,8 +17,12 @@ const DeleteMovie = () => {
     }
   };
 
-  if (!movies.length) {
+  if (isLoading) {
     return <Spinner />;
+  }
+
+  if (!movies.length) {
+    return <EmptyMsg />;
   }
 
   return (

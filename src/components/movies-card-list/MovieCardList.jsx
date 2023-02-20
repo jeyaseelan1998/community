@@ -2,15 +2,20 @@ import React, { useContext } from "react";
 
 import MovieCard from "../moive-card/MovieCard";
 import Spinner from "../spinner/Spinner";
+import EmptyMsg from "../emptyMsg/EmptyMsg";
 import { MoviesContext } from "../../context/MoviesContext";
 
 import "./MovieCardList.css";
 
 const MovieCardList = () => {
-  const { movies } = useContext(MoviesContext);
+  const { movies, isLoading } = useContext(MoviesContext);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   if (!movies.length) {
-    return <Spinner />;
+    return <EmptyMsg />;
   }
 
   return (
