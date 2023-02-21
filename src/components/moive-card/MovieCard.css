@@ -1,41 +1,40 @@
 .movie-card {
-    width: fit-content;
+    min-height: 67.5vh;
     text-align: center;
-    /* padding: 20px 15px; */
     border-radius: 16px;
     background-color: rgba(0, 0, 0, 0.125);
-    margin: auto;
-    margin-bottom: 20px;
+}
+
+.movie-image {
+    border-radius: 8px;
 }
 
 .movie-title {
-    width: fit-content;
-    margin: 0 auto 8px;
-    font-family: cursive;
+    font-family: Bree serif;
     font-size: 18px;
     font-weight: 600;
     color: rgb(230, 36, 244);
 }
 
-.movie-image {
-    height: 300px;
-    width: 220px;
-    border-radius: 8px;
-    margin: 5px 10px;
-}
 
 .btn {
-    width: 130px;
+    width: 110px;
     font-size: 12px;
     font-weight: 600;
-    font-family: cursive;
+    font-family: roboto;
+}
+
+.see-more {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .dvdscr {
+    padding: 7px 12px;
+    border-radius: 8px;
     font-size: 12px;
     font-weight: 600;
     font-family: cursive;
-    /* border: 1px solid red; */
-    padding: 5px 10px;
-    border-radius: 5px;
+    margin: 0;
+    opacity: 0.7;
 }

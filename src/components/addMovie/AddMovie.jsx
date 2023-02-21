@@ -126,12 +126,12 @@ const AddMovie = () => {
       </div>
 
       <div className="text-center">
-        <button className="btn btn-primary" type="submit">
+        <button className="btn btn-primary shadow" type="submit">
           {title}
         </button>
         <button
           type="button"
-          className="btn btn-light ml-5"
+          className="btn btn-light ml-5 shadow"
           onClick={resetHandler}
         >
           Reset

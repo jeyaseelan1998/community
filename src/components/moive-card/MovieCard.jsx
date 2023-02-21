@@ -16,19 +16,24 @@ const MovieCard = ({ movie: { id, title, seedrLink, imgURL, isHd } }) => {
 
   return (
     <div className="col-12 col-md-6 col-lg-4 col-xl-3">
-      <div className="movie-card  p-2 p-sm-3">
-        <img src={imgURL} alt="title" className="movie-image" />
-        <h1 className="movie-title">{title}</h1>
-        <div className="d-flex flex-row justify-content-center align-items-center">
-          <a href={seedrLink}>
-            <button className="btn btn-secondary">See More</button>
-          </a>
-          <div className="ml-2 ">
-            {isHd ? (
-              <Lottie options={defaultOptions} height={30} width={50} />
-            ) : (
-              <p className="m-0 bg-warning dvdscr">DVDScr</p>
-            )}
+      <div className="movie-card text-center bg-white shadow p-4 mb-3 d-flex flex-row justify-content-center align-items-center">
+        <div>
+          <img src={imgURL} alt="title" className="movie-image w-100" />
+          <h1 className="movie-title m-2">{title}</h1>
+          <div className="d-flex flex-row justify-content-center align-items-center mt-3">
+            <a href={seedrLink}>
+              <button className="btn see-more">See More</button>
+            </a>
+
+            <div className="ml-3">
+              {isHd ? (
+                <div className="shadow">
+                  <Lottie options={defaultOptions} height={30} width={50} />
+                </div>
+              ) : (
+                <p className="dvdscr bg-warning">DVDScr</p>
+              )}
+            </div>
           </div>
         </div>
       </div>

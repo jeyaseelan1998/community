@@ -19,7 +19,7 @@ const MovieCardList = () => {
   }
 
   return (
-    <div className="m-sm-3">
+    <div className="container mt-4">
       <div className="row">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />

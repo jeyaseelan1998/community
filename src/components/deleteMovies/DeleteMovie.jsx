@@ -49,15 +49,15 @@ const DeleteMovie = () => {
             </div>
             <div className="col-12 col-md-6 mb-3 mb-md-0">
               <button
-                className="btn btn-info"
+                className="btn btn-info shadow"
                 onClick={() => modifyHandler(movie)}
               >
                 Modify
               </button>
             </div>
-            <div className="col-12 col-md-6 ">
+            <div className="col-12 col-md-6">
               <button
-                className="btn btn-danger"
+                className="btn btn-danger shadow"
                 onClick={() => remove(movie.id)}
               >
                 Delete
