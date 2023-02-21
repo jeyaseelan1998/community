@@ -2,10 +2,20 @@
     margin: 10vh 20px 0;
 }
 
+.add-movie-heading {
+    font-size: 24px;
+    font-family: Bree serif;
+}
+
+.form-label {
+    font-size: 16px;
+    font-family: Bree serif;
+}
+
 @media only screen and (min-width: 992px) {
     .movie-form {
         width: 40vw;
         margin: 10vh auto 0;
     }
-    
+
 }

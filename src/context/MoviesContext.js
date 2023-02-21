@@ -1,7 +1,9 @@
 import React, { createContext, useEffect, useState } from "react";
-import { getMovies, deleteMovie, addMovie } from "../api/mockapi";
+import { getMovies, deleteMovie, addMovie, updateMovie } from "../api/mockapi";
 
 export const MoviesContext = createContext();
+
+const ENDPOINT = "movies";
 
 const MoviesContextProvider = ({ children }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -11,7 +13,7 @@ const MoviesContextProvider = ({ children }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const fetchMovies = async () => {
-      const moviesList = await getMovies("movies");
+      const moviesList = await getMovies(ENDPOINT);
       setMovies(moviesList);
       setIsLoading(false);
     };
@@ -20,14 +22,23 @@ const MoviesContextProvider = ({ children }) => {
   }, []);
 
   const addMovieHandler = async (newMovie) => {
-    const addedMovie = await addMovie("movies", newMovie);
+    const addedMovie = await addMovie(ENDPOINT, newMovie);
     setMovies((state) => [...state, addedMovie]);
   };
 
   const deletingHandler = (id) => {
-    deleteMovie("movies", id);
+    deleteMovie(ENDPOINT, id);
     const filtered = movies.filter((movie) => movie.id !== id);
     setMovies(filtered);
+  };
+
+  const updateMovieHandler = (movie) => {
+    updateMovie(ENDPOINT, movie);
+
+    let moviesList = [...movies];
+    let idx = moviesList.findIndex((element) => element.id === movie.id);
+    moviesList[idx] = movie;
+    setMovies(moviesList);
   };
 
   const value = {
@@ -35,6 +46,7 @@ const MoviesContextProvider = ({ children }) => {
     deletingHandler,
     addMovieHandler,
     isLoading,
+    updateMovieHandler,
   };
 
   return (

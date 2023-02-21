@@ -1,43 +1,41 @@
 .movie-card {
-    /* width: fit-content; */
+    width: fit-content;
     text-align: center;
-    padding: 15px;
+    /* padding: 20px 15px; */
     border-radius: 16px;
-    background-color: rgba(0,0,0,0.125);
+    background-color: rgba(0, 0, 0, 0.125);
     margin: auto;
     margin-bottom: 20px;
 }
+
 .movie-title {
-    font-family: roboto;
+    width: fit-content;
+    margin: 0 auto 8px;
+    font-family: cursive;
     font-size: 18px;
     font-weight: 600;
-    background-color: rgba(0,0,0,0.5);
-    border-radius: 10px;
-    width: fit-content;
-    padding: 10px 15px;
-    margin: 0 auto 10px;
-    color: white;
+    color: rgb(230, 36, 244);
 }
 
 .movie-image {
-    height: 40vh;
-    width: 25vh;
+    height: 300px;
+    width: 220px;
     border-radius: 8px;
-    margin: 10px;
+    margin: 5px 10px;
 }
 
 .btn {
-    width: 150px;
+    width: 130px;
     font-size: 12px;
+    font-weight: 600;
+    font-family: cursive;
 }
 
-.hd-icon-container {
-    position: absolute;
-    top:30px;
-    right: 75px;
-    background-color: #fff;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.dvdscr {
+    font-size: 12px;
+    font-weight: 600;
+    font-family: cursive;
+    /* border: 1px solid red; */
+    padding: 5px 10px;
+    border-radius: 5px;
 }

@@ -1,13 +1,17 @@
 .delete-movie-row {
     margin: 15px auto;
     text-align: center;
-    border-bottom: 1px solid teal;
     padding: 10px 0;
     width: 70vw;
+    border-left: 5px double rgb(15, 208, 251);
+    border-right: 5px double rgb(207, 22, 22);
+    border-bottom: 5px double teal;
+    border-top: 5px double teal;
 }
 
 .title {
-    font-family: roboto;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 18px;
+    color: #323232;
+    font-family: Bree serif;
 }

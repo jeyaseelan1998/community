@@ -60,11 +60,11 @@ export const deleteMovie = (endpoint, movieID) => {
   }
 };
 
-export const updateMovie = () => {
-  fetch("https://PROJECT_TOKEN.mockapi.io/tasks/1", {
+export const updateMovie = (endpoint, movie) => {
+  fetch(`https://63f1c0324f17278c9a193673.mockapi.io/${endpoint}/${movie.id}`, {
     method: "PUT", // or PATCH
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ completed: true }),
+    body: JSON.stringify(movie),
   })
     .then((res) => {
       if (res.ok) {
@@ -72,8 +72,9 @@ export const updateMovie = () => {
       }
       // handle error
     })
-    .then((task) => {
+    .then((movie) => {
       // Do something with updated task
+      // return movie;
     })
     .catch((error) => {
       // handle error
