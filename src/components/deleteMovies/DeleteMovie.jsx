@@ -35,9 +35,7 @@ const DeleteMovie = () => {
 
   return (
     <div className="deleteMoviesContainer">
-      <h1 className="movie-title text-center mt-3 mb-3">
-        Modify / Delete Movies
-      </h1>
+      <h1 className="movie-title text-center">Modify / Delete Movies</h1>
       {movies.map((movie) => {
         return (
           <div

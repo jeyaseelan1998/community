@@ -1,3 +1,8 @@
+.deleteMoviesContainer {
+    min-height: 100vh;
+    padding-top: 8vh;
+}
+
 .delete-movie-row {
     margin: 15px auto;
     text-align: center;

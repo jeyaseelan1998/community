@@ -9,6 +9,7 @@ const defaultMovieDetails = {
   title: "",
   imgURL: "",
   seedrLink: "",
+  trailer: "",
   isHd: false,
 };
 
@@ -58,86 +59,108 @@ const AddMovie = () => {
   };
 
   return (
-    <form className="movie-form" onSubmit={submitMovie}>
-      <h1 className="mb-3 text-center add-movie-heading">{title}</h1>
-      <hr />
-      <div className="mb-3 mt-4">
-        <label htmlFor="formGroupExampleInput2" className="form-label">
-          Movie Name
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="formGroupExampleInput2"
-          placeholder="Avatar 2"
-          onChange={onChangeHandler}
-          name="title"
-          value={movie.title}
-          required
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="formGroupExampleInput2" className="form-label">
-          Movie Poster
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="formGroupExampleInput2"
-          placeholder="Movie poster url"
-          onChange={onChangeHandler}
-          name="imgURL"
-          value={movie.imgURL}
-          required
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="formGroupExampleInput2" className="form-label">
-          Seedr Link
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="formGroupExampleInput2"
-          placeholder="Seedr Link"
-          onChange={onChangeHandler}
-          name="seedrLink"
-          value={movie.seedrLink}
-          required
-        />
-      </div>
-
-      <div className="mb-4 d-flex">
-        <label htmlFor="flexSwitchCheckChecked" className="form-label m-auto">
-          Is it HD Movie?
-        </label>
-
-        <div className="form-check form-switch mr-auto">
+    <div className="add-movie-container d-flex flex-column justify-content-center">
+      <form
+        className="movie-form mt-5 ml-auto mr-auto m-md-auto"
+        onSubmit={submitMovie}
+      >
+        <h1 className="mb-3 text-center add-movie-heading">{title}</h1>
+        <hr />
+        <div className="mb-3 mt-4">
+          <label htmlFor="formGroupExampleInput2" className="form-label">
+            Movie Name
+          </label>
           <input
-            className="form-check-input"
-            type="checkbox"
-            role="switch"
-            id="flexSwitchCheckChecked"
+            type="text"
+            className="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Avatar 2"
             onChange={onChangeHandler}
-            name="isHd"
-            checked={movie.isHd}
+            name="title"
+            value={movie.title}
+            required
           />
         </div>
-      </div>
+        <div className="mb-3">
+          <label htmlFor="formGroupExampleInput2" className="form-label">
+            Movie Poster
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Movie poster url"
+            onChange={onChangeHandler}
+            name="imgURL"
+            value={movie.imgURL}
+            required
+          />
+        </div>
 
-      <div className="text-center">
-        <button className="btn btn-primary shadow" type="submit">
-          {title}
-        </button>
-        <button
-          type="button"
-          className="btn btn-light ml-5 shadow"
-          onClick={resetHandler}
-        >
-          Reset
-        </button>
-      </div>
-    </form>
+        <div className="mb-3">
+          <label htmlFor="formGroupExampleInput2" className="form-label">
+            Movie Trailer
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Copy Paste from youtube"
+            onChange={onChangeHandler}
+            name="trailer"
+            value={movie.trailer}
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="formGroupExampleInput2" className="form-label">
+            Seedr Link
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Seedr Link"
+            onChange={onChangeHandler}
+            name="seedrLink"
+            value={movie.seedrLink}
+            required
+          />
+        </div>
+
+        <div className="mb-4 d-flex">
+          <label htmlFor="flexSwitchCheckChecked" className="form-label m-auto">
+            Is it HD Movie?
+          </label>
+
+          <div className="form-check form-switch mr-auto">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              onChange={onChangeHandler}
+              name="isHd"
+              checked={movie.isHd}
+            />
+          </div>
+        </div>
+
+        <div className="text-center">
+          <button className="btn btn-primary shadow" type="submit">
+            {title}
+          </button>
+          <button
+            type="button"
+            className="btn btn-light ml-5 shadow"
+            onClick={resetHandler}
+          >
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

@@ -1,5 +1,9 @@
+.add-movie-container {
+    height: 100vh;
+}
+
 .movie-form {
-    margin: 10vh 20px 0;
+    width: 85vw;
 }
 
 .add-movie-heading {
@@ -15,7 +19,6 @@
 @media only screen and (min-width: 992px) {
     .movie-form {
         width: 40vw;
-        margin: 10vh auto 0;
     }
 
 }

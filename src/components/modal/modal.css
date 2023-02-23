@@ -1,0 +1,14 @@
+.thanking-customers-section-modal-title {
+    color: #323232;
+    font-family: Bree serif;
+    font-weight: 600;
+}
+
+.modal-dialog {
+    margin-top: 10vh;
+}
+
+.modal-btn {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.7);
+}
