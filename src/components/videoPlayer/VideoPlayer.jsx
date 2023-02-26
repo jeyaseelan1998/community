@@ -2,7 +2,7 @@ import React from "react";
 
 const youtubeIdExtractor = (link) => {
   let pattern = /=[=-\w]+/;
-  const matched = link.match(pattern);
+  const matched = link.match(pattern) || '';
   const result = matched.toString().slice(1);
   return result;
 };
