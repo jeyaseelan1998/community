@@ -109,7 +109,6 @@ const AddMovie = () => {
             onChange={onChangeHandler}
             name="trailer"
             value={movie.trailer}
-            required
           />
         </div>
 
@@ -125,7 +124,6 @@ const AddMovie = () => {
             onChange={onChangeHandler}
             name="seedrLink"
             value={movie.seedrLink}
-            required
           />
         </div>
 

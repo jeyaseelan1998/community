@@ -1,0 +1,51 @@
+.chat-container {
+    padding-bottom: 11vh;
+    background-image: url("https://res.cloudinary.com/dktwlx0dz/image/upload/v1677649456/community/asserts/24058265_aug_8_01_pxraoa.jpg");
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.incoming {
+    width: 75%;
+    background-image: linear-gradient(to right, #87A2FB,#ADDDD0);
+    background-size: cover;
+    padding: 15px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-right: auto;
+    margin-bottom: 8px;
+}
+
+.outgoing {
+    width: 75%;
+    margin-left: auto;
+    margin-bottom: 8px;
+    background-image: linear-gradient(to left, #14C38E,#00FFAB); 
+    background-size: cover;
+    padding: 15px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.user-name {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: bree serif;
+}
+
+.message {
+    margin: 0;
+    font-size: 14px;
+}
+
+.time {
+    font-size: 12px;
+}
+
+.text-input {
+    height : 35px;
+    border-radius: 16px;
+    overflow: hidden;
+}

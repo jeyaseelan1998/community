@@ -42,14 +42,19 @@ const NavBar = () => {
               >
                 Delete movie
               </Link>
+              <Link
+                to={"chat"}
+                className="nav-link"
+                id="navItem4"
+              >
+                Chat
+              </Link>
             </div>
           </div>
         </div>
       </nav>
 
-      <div className="container">
         <Outlet />
-      </div>
     </>
   );
 };
