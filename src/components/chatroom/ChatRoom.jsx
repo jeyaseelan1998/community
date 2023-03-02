@@ -31,23 +31,8 @@ const ChatRoom = (event) => {
   };
 
   return (
-    <div className="chat-container pl-3 pr-3 pt-5 mt-3 d-flex flex-column justify-content-end">
-      {messages.map((chat) => (
-        <div
-          key={chat.id}
-          className={chat.user !== user ? "incoming" : "outgoing"}
-        >
-          <div className="d-flex flex-row">
-            <h1 className="user-name">{chat.user}</h1>
-            <span className="ml-auto time">
-              {moment(chat.timestamp).fromNow()}
-            </span>
-          </div>
-          <p className="message">{chat.text}</p>
-        </div>
-      ))}
-
-      <div className="fixed-bottom m-1 d-flex flex-row justify-content-end align-items-center">
+    <div className="chat-container pl-3 pr-3 d-flex flex-column justify-content-end">
+      <div className=" mt-3 mb-3 ml-2 mr-2 d-flex flex-row justify-content-end align-items-center">
         <input
           value={message}
           onChange={handleChange}
@@ -75,6 +60,22 @@ const ChatRoom = (event) => {
             </div>
           )}
         </button>
+      </div>
+      <div className="messages">
+        {messages.reverse().map((chat) => (
+          <div
+            key={chat.id}
+            className={chat.user !== user ? "incoming" : "outgoing"}
+          >
+            <div className="d-flex flex-row">
+              <h1 className="user-name">{chat.user}</h1>
+              <span className="ml-auto time">
+                {moment(chat.timestamp).fromNow()}
+              </span>
+            </div>
+            <p className="message">{chat.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
