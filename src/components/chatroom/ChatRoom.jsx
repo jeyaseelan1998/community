@@ -1,12 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import moment from "moment";
 
-// import { chats } from "../../data/mock_data";
 import { addUserName } from "../../api/local_storage";
 
 import { MessagesContext } from "../../context/MessagesContext";
-
-import Spinner from "../spinner/Spinner";
 
 import "./ChatRoom.css";
 
@@ -16,10 +13,6 @@ const ChatRoom = (event) => {
   const [message, setMessage] = useState("");
 
   const { messages, send, isLoading } = useContext(MessagesContext);
-
-  useEffect(() => {
-    console.log(isLoading);
-  }, [isLoading]);
 
   const handleChange = (event) => {
     setMessage(event.target.value);
@@ -77,8 +70,8 @@ const ChatRoom = (event) => {
               </svg>
             </>
           ) : (
-            <div class="spinner-border spinner-border-sm" role="status">
-              <span class="sr-only">Loading...</span>
+            <div className="spinner-border spinner-border-sm" role="status">
+              <span className="sr-only">Loading...</span>
             </div>
           )}
         </button>
