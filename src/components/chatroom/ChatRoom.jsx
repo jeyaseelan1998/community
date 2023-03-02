@@ -32,7 +32,7 @@ const ChatRoom = (event) => {
 
   return (
     <div className="chat-container pl-3 pr-3 d-flex flex-column justify-content-end">
-      <div className=" mt-3 mb-3 ml-2 mr-2 d-flex flex-row justify-content-end align-items-center">
+      <div className=" mb-3 ml-2 mr-2 d-flex flex-row justify-content-end align-items-center">
         <input
           value={message}
           onChange={handleChange}
