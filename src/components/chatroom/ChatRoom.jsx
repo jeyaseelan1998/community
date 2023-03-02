@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef } from "react";
 import moment from "moment";
 
 import { addUserName } from "../../api/local_storage";
@@ -10,32 +10,49 @@ import "./ChatRoom.css";
 let user = addUserName();
 
 const ChatRoom = (event) => {
-  const [message, setMessage] = useState("");
+  const msgRef = useRef();
 
   const { messages, send, isLoading } = useContext(MessagesContext);
 
-  const handleChange = (event) => {
-    setMessage(event.target.value);
-  };
-
   const sender = () => {
+    const message = msgRef.current.value;
     if (!message) return;
+
     let d = new Date();
     const newMsg = {
       timestamp: d.getTime(),
       user,
       text: message,
     };
+
     send(newMsg);
-    setMessage("");
+    msgRef.current.value = "";
   };
 
   return (
-    <div className="chat-container pl-3 pr-3 d-flex flex-column justify-content-end">
-      <div className=" mb-3 ml-2 mr-2 d-flex flex-row justify-content-end align-items-center">
+    <div className="chat-container pl-3 pr-3 d-flex flex-column justify-content-start">
+      <div className="messages">
+        {messages
+          .filter((e) => e.id > messages.length - 6)
+          .map((chat) => (
+            <div
+              key={chat.id}
+              className={chat.user !== user ? "incoming" : "outgoing"}
+            >
+              <div className="d-flex flex-row">
+                <h1 className="user-name">{chat.user}</h1>
+                <span className="ml-auto time">
+                  {moment(chat.timestamp).fromNow()}
+                </span>
+              </div>
+              <p className="message">{chat.text}</p>
+            </div>
+          ))}
+      </div>
+
+      <div className=" ml-2 mr-2 d-flex flex-row justify-content-end align-items-center">
         <input
-          value={message}
-          onChange={handleChange}
+          ref={msgRef}
           className=" bg-white form-control text-input border border-0 mr-2 w-100 pt-2 pb-2 pl-4 pr-4 text-right"
           required
         />
@@ -60,22 +77,6 @@ const ChatRoom = (event) => {
             </div>
           )}
         </button>
-      </div>
-      <div className="messages">
-        {messages.reverse().map((chat) => (
-          <div
-            key={chat.id}
-            className={chat.user !== user ? "incoming" : "outgoing"}
-          >
-            <div className="d-flex flex-row">
-              <h1 className="user-name">{chat.user}</h1>
-              <span className="ml-auto time">
-                {moment(chat.timestamp).fromNow()}
-              </span>
-            </div>
-            <p className="message">{chat.text}</p>
-          </div>
-        ))}
       </div>
     </div>
   );
