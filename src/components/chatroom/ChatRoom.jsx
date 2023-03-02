@@ -33,7 +33,7 @@ const ChatRoom = (event) => {
     <div className="chat-container pl-3 pr-3 d-flex flex-column justify-content-start">
       <div className="messages">
         {messages
-          .filter((e) => e.id > messages.length - 6)
+          .filter((e) => e.id > messages.length - 8)
           .map((chat) => (
             <div
               key={chat.id}
