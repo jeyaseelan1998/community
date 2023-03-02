@@ -1,4 +1,4 @@
-export const getMovies = async (endpoint) => {
+export const READ = async (endpoint) => {
   const data = await fetch(
     `https://63f1c0324f17278c9a193673.mockapi.io/${endpoint}`,
     {
@@ -22,14 +22,14 @@ export const getMovies = async (endpoint) => {
   return data;
 };
 
-export const addMovie = async (endpoint, newMovie) => {
+export const CREATE = async (endpoint, object) => {
   const addedMovie = await fetch(
     `https://63f1c0324f17278c9a193673.mockapi.io/${endpoint}`,
     {
       method: "POST",
       headers: { "content-type": "application/json" },
       // Send your data in the request body as JSON
-      body: JSON.stringify(newMovie),
+      body: JSON.stringify(object),
     }
   )
     .then((res) => {
@@ -47,20 +47,17 @@ export const addMovie = async (endpoint, newMovie) => {
   return addedMovie;
 };
 
-export const deleteMovie = (endpoint, movieID) => {
+export const DELETE = (endpoint, id) => {
   try {
-    fetch(
-      `https://63f1c0324f17278c9a193673.mockapi.io/${endpoint}/${movieID}`,
-      {
-        method: "DELETE",
-      }
-    );
+    fetch(`https://63f1c0324f17278c9a193673.mockapi.io/${endpoint}/${id}`, {
+      method: "DELETE",
+    });
   } catch (err) {
     alert("Can not delete the Movie");
   }
 };
 
-export const updateMovie = (endpoint, movie) => {
+export const UPDATE = (endpoint, movie) => {
   fetch(`https://63f1c0324f17278c9a193673.mockapi.io/${endpoint}/${movie.id}`, {
     method: "PUT", // or PATCH
     headers: { "content-type": "application/json" },

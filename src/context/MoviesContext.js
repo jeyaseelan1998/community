@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { getMovies, deleteMovie, addMovie, updateMovie } from "../api/mockapi";
+import { READ, DELETE, CREATE, UPDATE } from "../api/mockapi";
 
 export const MoviesContext = createContext();
 
@@ -13,7 +13,7 @@ const MoviesContextProvider = ({ children }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const fetchMovies = async () => {
-      const moviesList = await getMovies(ENDPOINT);
+      const moviesList = await READ(ENDPOINT);
       setMovies(moviesList);
       setIsLoading(false);
     };
@@ -22,18 +22,18 @@ const MoviesContextProvider = ({ children }) => {
   }, []);
 
   const addMovieHandler = async (newMovie) => {
-    const addedMovie = await addMovie(ENDPOINT, newMovie);
+    const addedMovie = await CREATE(ENDPOINT, newMovie);
     setMovies((state) => [...state, addedMovie]);
   };
 
   const deletingHandler = (id) => {
-    deleteMovie(ENDPOINT, id);
+    DELETE(ENDPOINT, id);
     const filtered = movies.filter((movie) => movie.id !== id);
     setMovies(filtered);
   };
 
   const updateMovieHandler = (movie) => {
-    updateMovie(ENDPOINT, movie);
+    UPDATE(ENDPOINT, movie);
 
     let moviesList = [...movies];
     let idx = moviesList.findIndex((element) => element.id === movie.id);
