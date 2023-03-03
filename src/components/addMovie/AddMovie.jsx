@@ -20,11 +20,16 @@ const AddMovie = () => {
   const title = !state ? "Add Movie" : "Modify Movie";
 
   const [movie, setMovie] = useState(defaultMovieDetails);
-  const { addMovieHandler, updateMovieHandler } = useContext(MoviesContext);
+  const { isProcessing, addMovieHandler, updateMovieHandler } =
+    useContext(MoviesContext);
 
   useEffect(() => {
     setMovie(state || defaultMovieDetails);
   }, [state]);
+
+  useEffect(() => {
+    console.log(isProcessing, "isProcessing");
+  }, [isProcessing]);
 
   const onChangeHandler = (event) => {
     let { name, value } = event.target;
@@ -36,19 +41,21 @@ const AddMovie = () => {
     setMovie((oldState) => ({ ...oldState, [name]: value }));
   };
 
-  const submitMovie = (e) => {
+  const submitMovie = async (e) => {
     e.preventDefault();
 
     //Password validation
     const password = prompt("Confirmation Password is being Required");
     if (password === "9698") {
       if (state) {
-        updateMovieHandler(movie);
+        await updateMovieHandler(movie);
       } else {
-        addMovieHandler(movie);
+        await addMovieHandler(movie);
       }
-      setMovie(defaultMovieDetails);
-      setTimeout(() => navigate("/"), 1500);
+      setMovie(() => {
+        if (!isProcessing) navigate("/");
+        return defaultMovieDetails;
+      });
     } else if (password) {
       alert("Your Password is Incorrect");
     }
@@ -147,7 +154,13 @@ const AddMovie = () => {
 
         <div className="text-center">
           <button className="btn btn-primary shadow" type="submit">
-            {title}
+            {!isProcessing ? (
+              title
+            ) : (
+              <div className="spinner-border spinner-border-sm" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            )}
           </button>
           <button
             type="button"

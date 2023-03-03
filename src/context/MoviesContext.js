@@ -9,6 +9,7 @@ const MoviesContextProvider = ({ children }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
@@ -22,8 +23,12 @@ const MoviesContextProvider = ({ children }) => {
   }, []);
 
   const addMovieHandler = async (newMovie) => {
+    setIsProcessing(true);
     const addedMovie = await CREATE(ENDPOINT, newMovie);
-    setMovies((state) => [...state, addedMovie]);
+    setMovies((state) => {
+      setIsProcessing(false);
+      return [addedMovie, ...state];
+    });
   };
 
   const deletingHandler = (id) => {
@@ -32,20 +37,25 @@ const MoviesContextProvider = ({ children }) => {
     setMovies(filtered);
   };
 
-  const updateMovieHandler = (movie) => {
-    UPDATE(ENDPOINT, movie);
+  const updateMovieHandler = async (movieObj) => {
+    setIsProcessing(true);
+    const updatedMovie = await UPDATE(ENDPOINT, movieObj);
 
     let moviesList = [...movies];
-    let idx = moviesList.findIndex((element) => element.id === movie.id);
-    moviesList[idx] = movie;
-    setMovies(moviesList);
+    let idx = moviesList.findIndex((element) => element.id === updatedMovie.id);
+    moviesList[idx] = updatedMovie;
+    setMovies(() => {
+      setIsProcessing(false);
+      return moviesList;
+    });
   };
 
   const value = {
     movies,
+    isLoading,
+    isProcessing,
     deletingHandler,
     addMovieHandler,
-    isLoading,
     updateMovieHandler,
   };
 

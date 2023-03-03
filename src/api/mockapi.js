@@ -57,12 +57,15 @@ export const DELETE = (endpoint, id) => {
   }
 };
 
-export const UPDATE = (endpoint, movie) => {
-  fetch(`https://63f1c0324f17278c9a193673.mockapi.io/${endpoint}/${movie.id}`, {
-    method: "PUT", // or PATCH
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(movie),
-  })
+export const UPDATE = async (endpoint, movie) => {
+  const updatedMovie = await fetch(
+    `https://63f1c0324f17278c9a193673.mockapi.io/${endpoint}/${movie.id}`,
+    {
+      method: "PUT", // or PATCH
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(movie),
+    }
+  )
     .then((res) => {
       if (res.ok) {
         return res.json();
@@ -71,9 +74,10 @@ export const UPDATE = (endpoint, movie) => {
     })
     .then((movie) => {
       // Do something with updated task
-      // return movie;
+      return movie;
     })
     .catch((error) => {
       // handle error
     });
+  return updatedMovie;
 };

@@ -1,7 +1,9 @@
 .chat-container {
     padding-bottom: 1vh;
     padding-top: 70px;
-    background-image: url("https://res.cloudinary.com/dktwlx0dz/image/upload/v1677649456/community/asserts/24058265_aug_8_01_pxraoa.jpg");
+    background: rgb(50, 11, 157);
+    background: linear-gradient(81deg, rgba(50, 11, 157, 1) 4%, rgba(27, 44, 219, 1) 36%, rgba(4, 195, 255, 1) 100%);
+    /* background-image: url("https://res.cloudinary.com/dktwlx0dz/image/upload/v1677649456/community/asserts/24058265_aug_8_01_pxraoa.jpg"); */
     background-size: cover;
     min-height: 100vh;
 }

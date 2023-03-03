@@ -4,8 +4,6 @@ import VideoPlayer from "../videoPlayer/VideoPlayer";
 import "./modal.css";
 
 const Modal = ({ title, seedrLink, trailer, idx }) => {
-  console.log(idx, title, "movie");
-
   return (
     <div>
       <button
