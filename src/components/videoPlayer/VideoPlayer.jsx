@@ -15,8 +15,8 @@ const VideoPlayer = ({ idx, youtubeLink }) => {
   return (
     <div className="embed-responsive embed-responsive-16by9">
       <iframe
-        width="560"
-        height="315"
+        // width="560"
+        // height="315"
         src={`https://www.youtube.com/embed/${videoId}`}
         title={`#title-${idx}`}
         // frameBorder="0"

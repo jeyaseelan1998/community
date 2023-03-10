@@ -22,7 +22,7 @@ const Modal = ({ title, seedrLink, trailer, idx }) => {
         aria-hidden="true"
       >
         <div class="modal-dialog modal-lg">
-          <div className="modal-header bg-light">
+          <div className="modal-header bg-light d-none">
             <h5 className="modal-title thanking-customers-section-modal-title">
               {title} Movie Trailer
             </h5>
@@ -38,7 +38,7 @@ const Modal = ({ title, seedrLink, trailer, idx }) => {
           <div class="modal-content">
             <VideoPlayer youtubeLink={trailer} idx={idx} />
           </div>
-          <div className="modal-footer bg-white">
+          <div className="modal-footer bg-white d-none">
               <a href={seedrLink}>
                 <button className="btn btn-success">Download</button>
               </a>
