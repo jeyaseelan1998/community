@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { READ, DELETE, CREATE, UPDATE } from "../api/mockapi";
+import { READ, CREATE } from "../api/mockapi";
 
 export const MessagesContext = createContext();
 

@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { addUserName } from "../../api/local_storage";
 
 import { MoviesContext } from "../../context/MoviesContext";
 
 import "./AddMovie.css";
+
+const user = addUserName();
 
 const defaultMovieDetails = {
   title: "",
@@ -43,10 +46,13 @@ const AddMovie = () => {
 
   const submitMovie = async (e) => {
     e.preventDefault();
-
+    //user validation
+    if (user !== "linux") {
+      var password = prompt("Confirmation Password is being Required");
+    }
     //Password validation
-    const password = prompt("Confirmation Password is being Required");
-    if (password === "9698") {
+    if (password === "9698" || user === "linux") {
+    
       if (state) {
         await updateMovieHandler(movie);
       } else {

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { MoviesContext } from "../../context/MoviesContext";
 import EmptyMsg from "../emptyMsg/EmptyMsg";
@@ -9,7 +8,7 @@ import BootstrapTable from "../table/BootstrapTable";
 import "./DeleteMovies.css";
 
 const DeleteMovie = () => {
-  const { movies, isLoading, deletingHandler } = useContext(MoviesContext);
+  const { movies, isLoading } = useContext(MoviesContext);
 
   if (isLoading) {
     return <Spinner />;

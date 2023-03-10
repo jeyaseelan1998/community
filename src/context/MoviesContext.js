@@ -27,14 +27,18 @@ const MoviesContextProvider = ({ children }) => {
     const addedMovie = await CREATE(ENDPOINT, newMovie);
     setMovies((state) => {
       setIsProcessing(false);
-      return [addedMovie, ...state];
+      return [...state, addedMovie];
     });
   };
 
   const deletingHandler = (id) => {
+    setIsProcessing(true);
     DELETE(ENDPOINT, id);
     const filtered = movies.filter((movie) => movie.id !== id);
-    setMovies(filtered);
+    setMovies(() => {
+      setIsProcessing(false);
+      return filtered
+    });
   };
 
   const updateMovieHandler = async (movieObj) => {
